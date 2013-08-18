@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+    <body>
+        <h1>Joe Meter</h1>
+        
+    </body>
+
+    <script src="Scripts/jquery-2.0.3.min.js"></script>
+    <script>
+
+        var worldWarZUrl = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=89n3t8j57at4eukx86j8sty3&q=World+War+Z&page_limit=1';
+
+        $.ajax({
+            type: 'GET',
+            url: worldWarZUrl,
+            dataType: 'jsonp',
+            success: function (data) {
+                
+                $('body').append($('<h2>', {
+                    text: 'Title:'
+                }));
+
+                $('body').append($('<div>', {
+                        text: data.movies[0].title
+                }));
+                
+                $('body').append($('<h2>', {
+                    text: 'Audience Rating:'
+                }));
+
+                $('body').append($('<div>', {
+                    text: data.movies[0].ratings.audience_score
+                }));
+
+            }
+        });
+    </script>
+</html>
