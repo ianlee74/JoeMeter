@@ -1,29 +1,40 @@
-var apikey = "apikey";
-        var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0";
 
-        // construct the uri with our apikey
-        var moviesSearchUrl = baseUrl + '/movies.json?apikey=' + apikey;
 
-        $("#SearchBtn").click(function () {
-            var value = $("#chkIt").val();
+var apiKey = '89n3t8j57at4eukx86j8sty3';
+var baseAPI = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=' + apiKey;
 
-            $.ajax({
-                url: moviesSearchUrl + '&q=' + encodeURI(value),
-                dataType: "jsonp",
-                success: searchCallback
-            });
+$("#SearchBtn").click(function () {
+    var value = $("#chkIt").val(); 
+    var moviesSearchUrl = baseAPI + '=' + encodeURI(value);
+
+    alert(moviesSearchUrl);
+
+    $.ajax({
+        url: moviesSearchUrl, //+ '=' + encodeURI(value),
+        dataType: 'jsonp',
+        success: function (data) {
             
-        });
-
- 
-
-        // callback for when we get back the results
-        function searchCallback(data) {
             $(document.body).append('Found ' + data.total + ' results for ' + query);
             var movies = data.movies;
 
-            $.each(movies, function(index, movie) {
+            console.writeln('success');
+            
+            $.each(movies, function (index, movie) {
                 $(document.body).append('<h1>' + movie.title + '</h1>');
                 $(document.body).append('<img src="' + movie.posters.thumbnail + '" />');
             });
         }
+    });
+
+});
+
+// callback for when we get back the results
+function searchCallback(data) {
+    $(document.body).append('Found ' + data.total + ' results for ' + query);
+    var movies = data.movies;
+        
+    $.each(movies, function (index, movie) {
+        $(document.body).append('<h1>' + movie.title + '</h1>');
+        $(document.body).append('<img src="' + movie.posters.thumbnail + '" />');
+    });
+}

@@ -1,32 +1,53 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>CoderFaire 2013</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
 </head>
-    <body>
-        <h1>Joe Meter</h1>
-        
-    </body>
+<body>
+    <div id="top" >
+        <h1>Joe Movie</h1>
+        <div>
+            <input id="chkIt" type="text" runat="server" />
+            <input id="SearchBtn" type="button" value="Search" runat="server" />
+        </div>
+    </div>
 
-    <script src="Scripts/jquery-2.0.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
+        var apiKey = '89n3t8j57at4eukx86j8sty3';
+        var baseAPI = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=' + apiKey;
+        var joeAPI = 'http://192.168.201.254/api/';
 
-        var worldWarZUrl = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=89n3t8j57at4eukx86j8sty3&q=World+War+Z&page_limit=1';
+        var joeAPIRightArm = joeAPI + 'rightArm/';
+        var joeAPILeftArm = joeAPI + 'leftArm/';
+        var joeAPIRightLeg = joeAPI + 'rightLeg/';
+        var joeAPILeftLeg = joeAPI + 'leftLeg/';
 
-        $.ajax({
-            type: 'GET',
-            url: worldWarZUrl,
-            dataType: 'jsonp',
-            success: function (data) {
-                
+        // construct the uri with our apikey
+        $("#SearchBtn").click(function () {
+            var value = $("#chkIt").val();
+
+            $.ajax({
+                type: 'GET',
+                url: baseAPI + '&q=' + encodeURI(value),
+                dataType: 'jsonp',
+                success: sucessCallback
+            });
+            
+            function sucessCallback(data) {
+
                 $('body').append($('<h2>', {
                     text: 'Title:'
                 }));
 
                 $('body').append($('<div>', {
-                        text: data.movies[0].title
+                    text: data.movies[0].title
                 }));
-                
+
                 $('body').append($('<h2>', {
                     text: 'Audience Rating:'
                 }));
@@ -35,7 +56,75 @@
                     text: data.movies[0].ratings.audience_score
                 }));
 
+                $('body').append($('<h2>', {
+                    text: 'Critics Rating:'
+                }));
+
+                $('body').append($('<div>', {
+                    text: data.movies[0].ratings.critics_score
+                }));
+
+                $('body').append($('<h2>', {
+                    text: 'MPAA Rating:'
+                }));
+
+                $('body').append($('<div>', {
+                    text: data.movies[0].mpaa_rating
+                }));
+
+                callJoe();
             }
+
+
+            function callJoe(rightArm, leftArm, rightLeg, leftLeg) {
+
+                alert('Go Joe!');
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPIRightArm,
+                    data: rightArm,
+                    dataType: 'jsonp',
+                    success: function() {
+                        //alert('Right Arm Moved');
+                    }
+                });
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPILeftArm,
+                    data: leftArm,
+                    dataType: 'jsonp',
+                    success: function () {
+                        //alert('Left Arm Moved');
+                    }
+                });
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPIRightLeg,
+                    data: rightLeg,
+                    dataType: 'jsonp',
+                    success: function () {
+                        //alert('Right Leg Moved');
+                    }
+                });
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPILeftLeg,
+                    data: leftLeg,
+                    dataType: 'jsonp',
+                    success: function () {
+                        //alert('Left Leg Moved');
+                    }
+                });
+
+            }
+
         });
     </script>
+    
+
+</body>
 </html>
