@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title> Joe Project </title>
+    <title>Joe Project </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -17,62 +17,113 @@
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
-  </head>
+</head>
 
-  <body>
+<body>
 
     <div class="container">
-      
-      <div class="row">      
-        <h1> The Joe Project </h1>
-      </div>
-      
-      <div class="row"> 
-        <p>You like movies? Joe likes movies! Curious to see how your favorite movie ranks on Rotten Tomatoes? Type in a movie and watch Joe get to work, analyzing ratings.
-        </p>
-      </div>
 
-      <div class="row"> 
-        <div class="span12">
-        <form>
-          <fieldset>
-            <label> Let's Get To Rating </label>
-              <input id="chkIt" type="text" placeholder="Type a movie here">
-                <span class="help-block">Ex: Son of the Mask</span>
-
-            <button type="submit" class="btn" id="SearchBtn"> Watch Joe Go! </button>
-
-          </fieldset>
-        </form>
+        <div class="row">
+            <h1>The Joe Project </h1>
         </div>
-      </div>
 
-     
-      <div class="row"> 
-        <div class="result"> 
-
+        <div class="row">
+            <p>
+                You like movies? Joe likes movies! Curious to see how your favorite movie ranks on Rotten Tomatoes? Type in a movie and watch Joe get to work, analyzing ratings.
+            </p>
         </div>
-      </div>
 
-      <div class="row"> 
-        <div class="log"> 
+        <div class="row">
+            <div class="span12">
+                <form>
+                    <fieldset>
+                        <label>Let's Get To Rating </label>
+                        <input id="chkIt" type="text" placeholder="Type a movie here">
+                        <span class="help-block">Ex: Son of the Mask</span>
 
+                        <button type="submit" class="btn" id="SearchBtn">Watch Joe Go! </button>
+
+                    </fieldset>
+                </form>
+            </div>
         </div>
-      </div>
 
-    </div> <!-- /container -->
+
+        <div class="row">
+            <div class="result">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="log">
+            </div>
+        </div>
+
+    </div>
+    <!-- /container -->
     <!-- Footer -->
     <footer>
-      <div class="row">
-        <div class="span6 offset8">
-        Made with Love at Coder Faire Hackathon 2013
-      </div>
-    </div>
+        <div class="row">
+            <div class="span6 offset8">
+                Made with Love at Coder Faire Hackathon 2013
+            </div>
+        </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+    <script>
+        var apiKey = '89n3t8j57at4eukx86j8sty3';
+        var baseAPI = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=' + apiKey;
+
+        // construct the uri with our apikey
+        $("#SearchBtn").click(function () {
+            var value = $("#chkIt").val();
+            alert('in');
+            alert(baseAPI + '&q=' + encodeURI(value));
+            
+            $.ajax({
+                type: 'GET',
+                url: baseAPI + '&q=' + encodeURI(value),
+                dataType: 'jsonp',
+                success: function (data) {
+
+                    $('body').append($('<h2>', {
+                        text: 'Title:'
+                    }));
+
+                    $('body').append($('<div>', {
+                        text: data.movies[0].title
+                    }));
+
+                    $('body').append($('<h2>', {
+                        text: 'Audience Rating:'
+                    }));
+
+                    $('body').append($('<div>', {
+                        text: data.movies[0].ratings.audience_score
+                    }));
+
+                    $('body').append($('<h2>', {
+                        text: 'Critics Rating:'
+                    }));
+
+                    $('body').append($('<div>', {
+                        text: data.movies[0].ratings.critics_score
+                    }));
+
+                    $('body').append($('<h2>', {
+                        text: 'MPAA Rating:'
+                    }));
+
+                    $('body').append($('<div>', {
+                        text: data.movies[0].mpaa_rating
+                    }));
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>
