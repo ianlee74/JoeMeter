@@ -20,6 +20,12 @@
     <script>
         var apiKey = '89n3t8j57at4eukx86j8sty3';
         var baseAPI = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=' + apiKey;
+        var joeAPI = 'http://192.168.201.254/api/';
+
+        var joeAPIRightArm = joeAPI + 'rightArm/';
+        var joeAPILeftArm = joeAPI + 'leftArm/';
+        var joeAPIRightLeg = joeAPI + 'rightLeg/';
+        var joeAPILeftLeg = joeAPI + 'leftLeg/';
 
         // construct the uri with our apikey
         $("#SearchBtn").click(function () {
@@ -63,7 +69,8 @@
                         text: data.movies[0].mpaa_rating
                     }));
                 }
-            });
+            });        
+
         });
     </script>
     
