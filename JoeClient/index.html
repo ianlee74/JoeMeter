@@ -35,41 +35,92 @@
                 type: 'GET',
                 url: baseAPI + '&q=' + encodeURI(value),
                 dataType: 'jsonp',
-                success: function (data) {
+                success: sucessCallback
+            });
+            
+            function sucessCallback(data) {
 
-                    $('body').append($('<h2>', {
-                        text: 'Title:'
-                    }));
+                $('body').append($('<h2>', {
+                    text: 'Title:'
+                }));
 
-                    $('body').append($('<div>', {
-                        text: data.movies[0].title
-                    }));
+                $('body').append($('<div>', {
+                    text: data.movies[0].title
+                }));
 
-                    $('body').append($('<h2>', {
-                        text: 'Audience Rating:'
-                    }));
+                $('body').append($('<h2>', {
+                    text: 'Audience Rating:'
+                }));
 
-                    $('body').append($('<div>', {
-                        text: data.movies[0].ratings.audience_score
-                    }));
+                $('body').append($('<div>', {
+                    text: data.movies[0].ratings.audience_score
+                }));
 
-                    $('body').append($('<h2>', {
-                        text: 'Critics Rating:'
-                    }));
+                $('body').append($('<h2>', {
+                    text: 'Critics Rating:'
+                }));
 
-                    $('body').append($('<div>', {
-                        text: data.movies[0].ratings.critics_score
-                    }));
+                $('body').append($('<div>', {
+                    text: data.movies[0].ratings.critics_score
+                }));
 
-                    $('body').append($('<h2>', {
-                        text: 'MPAA Rating:'
-                    }));
+                $('body').append($('<h2>', {
+                    text: 'MPAA Rating:'
+                }));
 
-                    $('body').append($('<div>', {
-                        text: data.movies[0].mpaa_rating
-                    }));
-                }
-            });        
+                $('body').append($('<div>', {
+                    text: data.movies[0].mpaa_rating
+                }));
+
+                callJoe();
+            }
+
+
+            function callJoe(rightArm, leftArm, rightLeg, leftLeg) {
+
+                alert('Go Joe!');
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPIRightArm,
+                    data: rightArm,
+                    dataType: 'jsonp',
+                    success: function() {
+                        //alert('Right Arm Moved');
+                    }
+                });
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPILeftArm,
+                    data: leftArm,
+                    dataType: 'jsonp',
+                    success: function () {
+                        //alert('Left Arm Moved');
+                    }
+                });
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPIRightLeg,
+                    data: rightLeg,
+                    dataType: 'jsonp',
+                    success: function () {
+                        //alert('Right Leg Moved');
+                    }
+                });
+                
+                $.ajax({
+                    type: 'GET',
+                    url: joeAPILeftLeg,
+                    data: leftLeg,
+                    dataType: 'jsonp',
+                    success: function () {
+                        //alert('Left Leg Moved');
+                    }
+                });
+
+            }
 
         });
     </script>
