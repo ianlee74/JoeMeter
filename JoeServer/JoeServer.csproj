@@ -41,10 +41,6 @@
   <ItemGroup>
     <Compile Include="MicroWebServer\Json\IJsonSerializable.cs" />
     <Compile Include="MicroWebServer\Json\JsonDateTime.cs" />
-    <Compile Include="MicroWebServer\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="MicroWebServer\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="MicroWebServer\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="MicroWebServer\Properties\AssemblyInfo.cs" />
     <Compile Include="MicroWebServer\Requests\RequestRoute.cs" />
     <Compile Include="MicroWebServer\Requests\RequestRouteList.cs" />
     <Compile Include="MicroWebServer\Requests\WebRequest.cs" />
@@ -100,21 +96,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MicroWebServer\bin\Debug\be\Logging.pdbx" />
-    <None Include="MicroWebServer\bin\Debug\be\Logging.pe" />
-    <None Include="MicroWebServer\bin\Debug\be\MicroWebServer.pdbx" />
-    <None Include="MicroWebServer\bin\Debug\be\MicroWebServer.pe" />
-    <None Include="MicroWebServer\bin\Debug\le\Logging.pdbx" />
-    <None Include="MicroWebServer\bin\Debug\le\Logging.pe" />
-    <None Include="MicroWebServer\bin\Debug\le\MicroWebServer.pdbx" />
-    <None Include="MicroWebServer\bin\Debug\le\MicroWebServer.pe" />
-    <None Include="MicroWebServer\obj\Debug\be\MicroWebServer.pdbx" />
-    <None Include="MicroWebServer\obj\Debug\be\MicroWebServer.pe" />
-    <None Include="MicroWebServer\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="MicroWebServer\obj\Debug\le\MicroWebServer.pdbx" />
-    <None Include="MicroWebServer\obj\Debug\le\MicroWebServer.pe" />
-    <None Include="MicroWebServer\obj\Debug\MicroWebServer.csprojResolveAssemblyReference.cache" />
-    <None Include="MicroWebServer\obj\Debug\TinyCLR_DebugReferences.cache" />
     <None Include="Program.gadgeteer">
       <Generator>GadgeteerFileCodeGenerator</Generator>
       <LastGenOutput>Program.generated.cs</LastGenOutput>
@@ -125,21 +106,5 @@
     <None Include="Resources\NinaB.tinyfnt" />
     <None Include="Resources\small.tinyfnt" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="MicroWebServer\bin\Debug\be\MicroWebServer.dll" />
-    <Content Include="MicroWebServer\bin\Debug\be\MicroWebServer.pdb" />
-    <Content Include="MicroWebServer\bin\Debug\le\MicroWebServer.dll" />
-    <Content Include="MicroWebServer\bin\Debug\le\MicroWebServer.pdb" />
-    <Content Include="MicroWebServer\bin\Debug\Logging.dll" />
-    <Content Include="MicroWebServer\bin\Debug\Logging.pdb" />
-    <Content Include="MicroWebServer\bin\Debug\MicroWebServer.dll" />
-    <Content Include="MicroWebServer\bin\Debug\MicroWebServer.pdb" />
-    <Content Include="MicroWebServer\MicroWebServer.csproj" />
-    <Content Include="MicroWebServer\obj\Debug\MicroWebServer.csproj.FileListAbsolute.txt" />
-    <Content Include="MicroWebServer\obj\Debug\MicroWebServer.dll" />
-    <Content Include="MicroWebServer\obj\Debug\MicroWebServer.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MicroWebServer\obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
