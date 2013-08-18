@@ -11,7 +11,9 @@
     <script src="Scripts/jquery-2.0.3.min.js"></script>
     <script>
 
-        var worldWarZUrl = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=89n3t8j57at4eukx86j8sty3&q=World+War+Z&page_limit=1';
+        var apiKey = '89n3t8j57at4eukx86j8sty3&q';
+        var baseAPI = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=' + apiKey;
+        var worldWarZUrl = baseAPI + '=World+War+Z&page_limit=1';
 
         $.ajax({
             type: 'GET',
@@ -33,6 +35,22 @@
 
                 $('body').append($('<div>', {
                     text: data.movies[0].ratings.audience_score
+                }));
+                
+                $('body').append($('<h2>', {
+                    text: 'Critics Rating:'
+                }));
+
+                $('body').append($('<div>', {
+                    text: data.movies[0].ratings.critics_score
+                }));
+                
+                $('body').append($('<h2>', {
+                    text: 'MPAA Rating:'
+                }));
+
+                $('body').append($('<div>', {
+                    text: data.movies[0].mpaa_rating
                 }));
 
             }

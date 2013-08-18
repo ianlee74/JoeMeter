@@ -58,7 +58,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="Lisa\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Lisa\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Lisa\bootstrap\css\bootstrap.css" />
+    <Content Include="Lisa\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Lisa\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Lisa\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Lisa\bootstrap\js\bootstrap.js" />
+    <Content Include="Lisa\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Lisa\css\main.css" />
+    <Content Include="Lisa\index.html" />
+    <Content Include="Lisa\js\main.js" />
     <Content Include="packages.config" />
+    <Content Include="Lisa\README.md" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
