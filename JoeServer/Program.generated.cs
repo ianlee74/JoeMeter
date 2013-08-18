@@ -15,6 +15,12 @@ namespace JoeServer {
     
     public partial class Program : Gadgeteer.Program {
         
+        private Gadgeteer.Modules.GHIElectronics.LED_Strip leds;
+        
+        private Gadgeteer.Modules.GHIElectronics.Breakout lowerServos;
+        
+        private Gadgeteer.Modules.GHIElectronics.Breakout upperServos;
+        
         public static void Main() {
             // Important to initialize the Mainboard first
             Program.Mainboard = new GHIElectronics.Gadgeteer.FEZCerberus();
@@ -26,6 +32,9 @@ namespace JoeServer {
         }
         
         private void InitializeModules() {
+            this.lowerServos = new GTM.GHIElectronics.Breakout(3);
+            this.upperServos = new GTM.GHIElectronics.Breakout(4);
+            this.leds = new GTM.GHIElectronics.LED_Strip(7);
         }
     }
 }
