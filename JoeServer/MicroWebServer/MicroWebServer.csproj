@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AssemblyName>MicroWebServer</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MicroWebServer</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B853365-88A5-48B7-B040-26A8B18016F5}</ProjectGuid>
+    <TargetFrameworkVersion>v4.1</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <ItemGroup>
+    <Compile Include="Json\IJsonSerializable.cs" />
+    <Compile Include="Json\JsonDateTime.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\RequestRoute.cs" />
+    <Compile Include="Requests\RequestRouteList.cs" />
+    <Compile Include="Requests\WebRequest.cs" />
+    <Compile Include="Requests\WebRequestHandler.cs" />
+    <Compile Include="Utilities\HttpMethods.cs" />
+    <Compile Include="Utilities\HttpUtility.cs" />
+    <Compile Include="Utilities\StringUtils.cs" />
+    <Compile Include="WebResponses\EmptyResponse.cs" />
+    <Compile Include="WebResponses\FileResponse.cs" />
+    <Compile Include="WebResponses\HtmlResponse.cs" />
+    <Compile Include="WebResponses\JsonResponse.cs" />
+    <Compile Include="WebResponses\NotFoundResponse.cs" />
+    <Compile Include="WebResponses\RedirectResponse.cs" />
+    <Compile Include="WebResponses\WebResponse.cs" />
+    <Compile Include="WebServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SPOT.Native">
+    </Reference>
+    <Reference Include="System.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{68AEC5FC-9397-4B7A-B4F1-4056E6AD0FFA}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
