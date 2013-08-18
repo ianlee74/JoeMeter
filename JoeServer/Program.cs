@@ -129,7 +129,7 @@ namespace JoeServer
 
         private WebResponse MoveHead(WebRequest request)
         {
-            LeftLeg.StartExercising();
+            Head.StartExercising();
             return new JsonResponse("ok");
         }
 

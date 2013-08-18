@@ -7,6 +7,11 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
+    <a href="http://192.168.201.254/api/head">Head</a>&nbsp;
+    <a href="http://192.168.201.254/api/leftArm">Left Arm</a>&nbsp;
+    <a href="http://192.168.201.254/api/rightArm">Right Arm</a>&nbsp;
+    <a href="http://192.168.201.254/api/leftLeg">Left Leg</a>&nbsp;
+    <a href="http://192.168.201.254/api/rightLeg">Right Leg</a>&nbsp;
     <div id="top" >
         <h1>Joe Movie</h1>
         <div>
@@ -78,13 +83,13 @@
 
             function callJoe(rightArm, leftArm, rightLeg, leftLeg) {
 
-                alert('Go Joe!');
+                //alert('Go Joe!');
                 
                 $.ajax({
                     type: 'GET',
                     url: joeAPIRightArm,
                     data: rightArm,
-                    dataType: 'jsonp',
+                    dataType: 'application/json',
                     success: function() {
                         //alert('Right Arm Moved');
                     }
@@ -94,7 +99,7 @@
                     type: 'GET',
                     url: joeAPILeftArm,
                     data: leftArm,
-                    dataType: 'jsonp',
+                    dataType: 'application/json',
                     success: function () {
                         //alert('Left Arm Moved');
                     }
@@ -104,7 +109,7 @@
                     type: 'GET',
                     url: joeAPIRightLeg,
                     data: rightLeg,
-                    dataType: 'jsonp',
+                    dataType: 'application/json',
                     success: function () {
                         //alert('Right Leg Moved');
                     }
@@ -114,7 +119,7 @@
                     type: 'GET',
                     url: joeAPILeftLeg,
                     data: leftLeg,
-                    dataType: 'jsonp',
+                    dataType: 'application/json',
                     success: function () {
                         //alert('Left Leg Moved');
                     }
